@@ -6,12 +6,14 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     //Variables
     Toolbar toolbar;
+    LinearLayout ly
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,10 @@ public class MainActivity extends AppCompatActivity {
         //Establece que elemento es el Toolbar
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        ly = (LinearLayout)
+
+        //Registramos menu contextual
+        registerForContextMenu();
     }
 
     //Establece el menu de opciones
