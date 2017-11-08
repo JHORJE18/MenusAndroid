@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, "Has pinchado en la información", Toast.LENGTH_LONG).show();
                 break;
         }
+        
         return super.onOptionsItemSelected(item);
     }
 }
