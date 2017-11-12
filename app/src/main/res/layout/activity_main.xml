@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/baseLY"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -13,18 +14,23 @@
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
     <TextView
+        android:id="@+id/txtHola"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hola!" />
+        android:text="Hola!"
+        android:textAlignment="center"
+        android:textSize="50sp"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/txtBienvenido"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Bienvenido" />
+        android:text="Bienvenido"
+        android:textSize="20sp" />
 
 </LinearLayout>
