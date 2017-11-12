@@ -17,20 +17,28 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:theme="@style/ThemeOverlay.AppCompat.Dark" />
 
-    <TextView
-        android:id="@+id/txtHola"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Hola!"
-        android:textAlignment="center"
-        android:textSize="50sp"
-        android:textStyle="bold" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txtBienvenido"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Bienvenido"
-        android:textSize="20sp" />
+        <TextView
+            android:id="@+id/txtHola"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:text="Hola!"
+            android:textAlignment="center"
+            android:textSize="50sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txtBienvenido"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/txtHola"
+            android:text="Bienvenido"
+            android:textSize="20sp" />
+    </RelativeLayout>
 
 </LinearLayout>

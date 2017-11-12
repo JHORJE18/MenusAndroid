@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/aumentarTamaño"
+        android:title="Aumentar tamaño"
+        android:icon="@drawable/ic_add_24dp"  />
+
+    <item
+        android:id="@+id/reducirTamaño"
+        android:title="Reducir tamaño"
+        android:icon="@drawable/ic_remove_24dp" />
+
+</menu>

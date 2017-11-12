@@ -2,6 +2,7 @@ package com.example.jhorje.menus;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.PopupMenu;
 import android.support.v7.widget.Toolbar;
 import android.view.ContextMenu;
 import android.view.Menu;
@@ -36,6 +37,56 @@ public class MainActivity extends AppCompatActivity {
         txtHola = (TextView) findViewById(R.id.txtHola);
         txtBienvenido = (TextView) findViewById(R.id.txtBienvenido);
         modoNoche();
+
+        //Asignamos popup
+        txtHola.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                PopupMenu popupMenu = new PopupMenu(MainActivity.this, txtHola);
+                popupMenu.getMenuInflater().inflate(R.menu.menu_popup, popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch(item.getItemId()){
+                            case R.id.aumentarTamaño:
+                                tamañoTXT(true,txtHola);
+                                break;
+                            case R.id.reducirTamaño:
+                                tamañoTXT(false,txtHola);
+                                break;
+                        }
+                        return false;
+                    }
+                });
+
+                popupMenu.show();
+            }
+        });
+        txtBienvenido.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                PopupMenu popupMenu = new PopupMenu(MainActivity.this, txtBienvenido);
+                popupMenu.getMenuInflater().inflate(R.menu.menu_popup, popupMenu.getMenu());
+                popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch(item.getItemId()){
+                            case R.id.aumentarTamaño:
+                                tamañoTXT(true,txtBienvenido);
+                                break;
+                            case R.id.reducirTamaño:
+                                tamañoTXT(false,txtBienvenido);
+                                break;
+                        }
+                        return false;
+                    }
+                });
+
+                popupMenu.show();
+            }
+        });
 
         //Registramos el menu contextual
         registerForContextMenu(ly);
@@ -73,6 +124,7 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_ajustes, menu);
     }
 
+    //Gestion eventos menu Contextual
     @Override
     public boolean onContextItemSelected(MenuItem item) {
 
@@ -88,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //EXTRA
+        //MODO NOCHE
     public void modoNoche(){
         if (modeNight){
             ly.setBackground(getDrawable(R.color.day));
@@ -99,6 +152,17 @@ public class MainActivity extends AppCompatActivity {
             txtHola.setTextColor(getColor(R.color.blanco));
             txtBienvenido.setTextColor(getColor(R.color.blanco));
             modeNight = true;
+        }
+    }
+
+        //AUMENTAR & REDUCIR TEXTO
+    public void tamañoTXT(boolean aumentar, TextView elemento){
+        if (aumentar){
+            elemento.setTextSize((elemento.getTextSize() * 2));
+            Toast.makeText(MainActivity.this,"Texto " + elemento.getText() + " aumentado",Toast.LENGTH_LONG);
+        } else {
+            elemento.setTextSize((elemento.getTextSize() / 2));
+            Toast.makeText(MainActivity.this,"Texto " + elemento.getText() + " reducido",Toast.LENGTH_LONG);
         }
     }
 }
